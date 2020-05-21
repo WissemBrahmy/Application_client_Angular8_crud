@@ -1,26 +1,34 @@
-<h3>Create New Employee</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<h4>Create New Employee</h4>
+<br>
+
+<div class="container">
+ <div class="row">
+   <div [hidden]="submitted" class="col">
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="name">First Name*</label>
+            <label for="name"><b>First Name* </b></label>
             <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
         </div>
 
         <div class="form-group">
-            <label for="name">Last Name*</label>
+            <label for="name"><b> Last Name* </b> </label>
             <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
         </div>
 
         <div class="form-group">
-            <label for="name">Email*</label>
-            <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+            <label for="name"><b> Email* </b></label>
+            <input type="email" class="form-control" id="emailId" placeholder="exemple@exemple.com" required [(ngModel)]="employee.emailId" name="emailId">
         </div>
 
         <button type="submit" class="btn btn-success">Done</button>
-        <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Clear</button>
+        <button type="reset" class="btn btn-warning" style="margin-left: 10px;">Clear</button>
     </form>
-</div>
+  </div>
 
-<div [hidden]="!submitted">
+<div [hidden]="!submitted" class="alert alert-success" role="alert">
     <h4>Create successfully!</h4>
+</div>
+  <div class="col">
+       <img src="assets/img/s.png" class="img-fluid" alt="Responsive image">
+  </div>
 </div>
