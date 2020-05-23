@@ -75,6 +75,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "testCrudAngular8:build"
+            
           },
           "configurations": {
             "production": {
