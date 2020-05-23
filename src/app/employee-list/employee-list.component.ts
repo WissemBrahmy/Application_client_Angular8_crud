@@ -25,6 +25,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
+   if(window.confirm('Are sure you want to delete this employee ?')){
     this.employeeService.deleteEmployee(id)
       .subscribe(
         data => {
@@ -32,8 +33,8 @@ export class EmployeeListComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
+   }
   }
-
   employeeDetails(id: number){
     this.router.navigate(['details', id]);
   }
