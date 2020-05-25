@@ -1,0 +1,29 @@
+<h2>Find By Department</h2><br>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="department"><b>Choose Department*</b></label>
+       <select class="form-control" id="department" required [(ngModel)]="department" name="department">
+        <option>Dep 1</option>
+        <option>Dep 2</option>
+        <option>Dep 3</option>
+        <option>Dep 4</option>
+      
+        </select>
+    </div>
+ 
+    <div class="btn-group">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div>
+<ul>
+  <li *ngFor="let employee of employees">
+    <h3>{{employee.id}} - {{employee.firstName}} {{employee.lastName}} || {{employee.department}}
+  
+        <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
+        <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
+        <button (click)="employeeDetails(employee.id)" style="margin-left: 10px;" class="btn btn-info">Details</button>
+    </h3>   
+    </li>
+</ul>

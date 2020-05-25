@@ -8,6 +8,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     EmployeeDetailsComponent,
     EmployeeListComponent,
     UpdateEmployeeComponent,
+    SearchEmployeeComponent,
     
    
    
