@@ -13,10 +13,18 @@
             <label for="name"><b>Last Name </b></label>
             <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
           </div>
-
+          <div class="form-group">
+            <label for="name"><b> Sex* </b></label><br>
+            M <input type="radio"  id="sex" value="M" required [(ngModel)]="employee.sex" name="sex">
+            F <input type="radio"  id="sex" value="F" required [(ngModel)]="employee.sex" name="sex">      
+          </div>
           <div class="form-group">
             <label for="name"><b>Email </b></label>
             <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+          </div>
+          <div class="form-group">
+            <label for="name"><b> Birth Date* </b></label>
+            <input type="date" class="form-control" id="birthDate"  required [(ngModel)]="employee.birthDate" name="birthDate">
           </div>
           <div class="form-group">
             <label for="name"><b> Departement* </b></label>

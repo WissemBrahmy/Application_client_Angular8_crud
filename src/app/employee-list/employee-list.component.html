@@ -8,8 +8,9 @@
             <div class="card">
                 <img src="assets/img/logo.png" class="card-img-top img-fluid"  alt="Responsive image" style="width: 300px; height: 200px;">
                 <div class="card-body">
-                <h5 class="card-title">Name: {{employee.firstName}}  {{employee.lastName}}</h5>
-                
+
+                <h5 class="card-title">Full Name: {{employee.firstName}}  {{employee.lastName}}</h5>
+                <p>Employee ID: {{employee.id}}</p>
                 <h6>Email: {{employee.emailId}}</h6>
                 <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
                 <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
