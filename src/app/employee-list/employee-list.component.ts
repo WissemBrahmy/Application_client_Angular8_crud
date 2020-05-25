@@ -1,3 +1,4 @@
+
 import { EmployeeDetailsComponent } from './../employee-details/employee-details.component';
 import { Observable } from "rxjs";
 import { EmployeeService } from "./../employee.service";
@@ -39,6 +40,7 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
+  
   updateEmployee(id: number){
     this.router.navigate(['update', id]);
   }

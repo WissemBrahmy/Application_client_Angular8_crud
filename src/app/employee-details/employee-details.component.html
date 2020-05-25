@@ -12,9 +12,13 @@
       <div>
         <label><b>Email : </b></label> {{employee.emailId}}
       </div>  
+      <div>
+        <label><b>Department : </b></label> {{employee.department}}
+      </div>  
     </div>
     
     <br>
     <br>
-    <button (click)="list()" class="btn btn-primary">Back ..</button><br>
-
+    
+    <button (click)="deleteEmployee(employee.id)"  class="btn btn-dark">Delete</button>
+    <button (click)="list()" class="btn btn-primary" style="margin-left: 10px;">Back ..</button>             

@@ -18,7 +18,17 @@
             <label for="name"><b>Email </b></label>
             <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
           </div>
-
+          <div class="form-group">
+            <label for="name"><b> Departement* </b></label>
+            <select class="form-control" name="department" [(ngModel)]="employee.department" id="department" required>
+            
+            <option>Dep 1</option>
+            <option>Dep 2</option>
+            <option>Dep 3</option>
+            <option>Dep 4</option>
+           
+            </select>
+          </div>  
           <button type="submit" class="btn btn-primary">Done</button>
           <button type="reset" class="btn btn-dark" style="margin-left: 10px;">Clear</button>
     

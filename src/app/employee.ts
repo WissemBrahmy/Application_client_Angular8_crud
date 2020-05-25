@@ -3,5 +3,6 @@ export class Employee {
     firstName: string;
     lastName: string;
     emailId: string;
+    department: string;
     active: boolean;
 }

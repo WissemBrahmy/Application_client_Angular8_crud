@@ -16,6 +16,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     EmployeeDetailsComponent,
     EmployeeListComponent,
     UpdateEmployeeComponent,
+    
+   
    
   ],
   imports: [
