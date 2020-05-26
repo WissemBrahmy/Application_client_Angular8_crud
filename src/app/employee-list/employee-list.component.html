@@ -13,9 +13,9 @@
                 <h5 class="card-title">Full Name: {{employee.firstName}}  {{employee.lastName}}</h5>
                 <p>Employee ID: {{employee.id}}</p>
                 <h6>Email: {{employee.emailId}}</h6>
-                <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
-                <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
-                <button (click)="employeeDetails(employee.id)" style="margin-left: 10px;" class="btn btn-info">Details</button>
+                <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark"> <i class="fa fa-trash"></i> Delete</button>
+                <button (click)="updateEmployee(employee.id)" style="margin-left: 5px;"class="btn btn-primary"> <i class="fa fa-edit" aria-hidden="true"></i> Update</button>
+                <button (click)="employeeDetails(employee.id)" style="margin-left: 5px;" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</button>
                 
                 </div>
             </div>
