@@ -19,7 +19,6 @@ export class EmployeeDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.employee = new Employee();
-
     this.id = this.route.snapshot.params['id'];
     
     this.employeeService.getEmployee(this.id)
@@ -28,6 +27,7 @@ export class EmployeeDetailsComponent implements OnInit {
         this.employee = data;
       }, error => console.log(error));
   }
+
   deleteEmployee(id: number) {
     if(window.confirm('Are sure you want to delete this employee ?')){
      this.employeeService.deleteEmployee(id)
@@ -35,10 +35,10 @@ export class EmployeeDetailsComponent implements OnInit {
          data => {
            console.log(data);
            this.list();
-         },
-         error => console.log(error));
+         }, error => console.log(error));
     }
    }
+   
   list(){
     this.router.navigate(['employees']);
   }

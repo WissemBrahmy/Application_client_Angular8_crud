@@ -12,10 +12,11 @@ export class CreateEmployeeComponent implements OnInit {
 
   employee: Employee = new Employee();
   submitted = false;
+  message: string;
 
   constructor(private employeeService: EmployeeService) { }
 
- /* initialisation */
+  /* initialisation */
   ngOnInit() {
   }
 
@@ -24,11 +25,12 @@ export class CreateEmployeeComponent implements OnInit {
     this.employee = new Employee();
   }
 
-/* call service function createEmployee() in service */
+  /* call service function createEmployee() in service */
   save() {
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), error => console.log(error));
     this.employee = new Employee();
+    this.message= "Create successfully!";
   }
 
   /* call to save() method */

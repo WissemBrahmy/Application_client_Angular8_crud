@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class SearchEmployeeComponent implements OnInit {
   employees: Observable<Employee[]>;
   department: string;
+  emailId: string;
+  message: string;
+  message2: string;
+  employee: Employee;
 
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
@@ -19,16 +23,39 @@ export class SearchEmployeeComponent implements OnInit {
   ngOnInit() {
     this.department = "";
   }
+
   private searchDepartment() {
     this.employeeService.getEmployeesByDepartment(this.department)
     .subscribe((data:any) => {
       console.log(data);
-      this.employees = data;
-    }, error => console.log(error)); }
+     this.employees = data;  
+     this.message ="searching result .."
+    }, error => console.log(error));
+   }
  
+  private searchEmail() {
+    this.employeeService.getEmployeeByEmail(this.emailId)
+    .subscribe((data:any) => {
+       console.log(data);
+       
+    this.employee = data;
+    if(this.employee){
+      this.message2 = "Searching result ..";}
+    else
+    {
+      this.message2 ="Employee not found for this Email"
+    }
+      
+      }, error => console.log(error)); }
+   
   onSubmit() {
     this.searchDepartment();
   }
+
+  search() {
+    this.searchEmail();
+  }
+
   reloadData() {
     this.employees = this.employeeService.getEmployeesByDepartment(this.department);
   }
@@ -44,11 +71,11 @@ export class SearchEmployeeComponent implements OnInit {
          error => console.log(error));
     }
    }
+
    employeeDetails(id: number){
      this.router.navigate(['details', id]);
    }
  
-   
    updateEmployee(id: number){
      this.router.navigate(['update', id]);
    }

@@ -1,10 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1>List of Employees</h1>     
+        <h4>List of Employees</h4>     
     </div>  
+    <br>
     <div class="panel-body">
         <div class="row row-cols-1 row-cols-md-3" >
-            <div class="col mb-4" *ngFor="let employee of employees | async">
+            <div class="col mb-4" *ngFor="let employee of employees | async | paginate:{itemsPerPage: 3, currentPage:p}">
             <div class="card">
                 <img src="assets/img/logo.png" class="card-img-top img-fluid"  alt="Responsive image" style="width: 300px; height: 200px;">
                 <div class="card-body">
@@ -20,4 +21,7 @@
             </div>
             </div>
         </div>
+        <div id="pagination" class="card-footer">
+			<pagination-controls (pageChange)="p=$event" ></pagination-controls>
+		</div>  
     <div>

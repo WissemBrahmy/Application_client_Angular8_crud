@@ -1,29 +1,106 @@
-<h2>Find By Department</h2><br>
-<div style="width: 300px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="department"><b>Choose Department*</b></label>
-       <select class="form-control" id="department" required [(ngModel)]="department" name="department">
-        <option>Dep 1</option>
-        <option>Dep 2</option>
-        <option>Dep 3</option>
-        <option>Dep 4</option>
-      
-        </select>
+<h4>Search Employees</h4>
+<br>    
+
+<div id="accordion" >
+    <div class="card">
+        <div class="card-header " id="heading-one" style="background-color:gray">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1" style="color:white">
+                   <b> Searching By Department </b>
+                </button>
+            </h5>
+        </div>
+        <div id="collapse1" class="collapse show" aria-labelledby="heading-one" data-parent="#accordion">
+           <div class="card-body">
+                    
+            <div class="col ">
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                    <label for="department"><b>Choose Department*</b></label><br>
+                    <select class="form-control"  id="department" required [(ngModel)]="department" name="department" style="width: 250px;">
+                        <option>Dep 1</option>
+                        <option>Dep 2</option>
+                        <option>Dep 3</option>
+                        <option>Dep 4</option>
+                    
+                        </select>
+                    </div>
+                
+                    <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            <br>
+            
+            <ul>
+                <div [hidden]="!employees" class="col alert alert-success" role="alert">
+                    <h4>{{message}}</h4>
+                </div>
+                <li *ngFor="let employee of employees| paginate:{itemsPerPage: 3, currentPage:p}">
+                <h3>{{employee.id}} - {{employee.firstName}} {{employee.lastName}} || {{employee.department}}
+            
+                    <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
+                    <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
+                    <button (click)="employeeDetails(employee.id)" style="margin-left: 10px;" class="btn btn-info">Details</button>
+                </h3> 
+               
+                </li>
+                <div [hidden]="!employees" id="pagination" >
+                    <pagination-controls (pageChange)="p=$event" ></pagination-controls>
+                </div>  
+                <div *ngIf="!employees" >
+                    <h4 >{{message}}</h4>
+                </div>
+            </ul> 
+        
+           </div>
+        </div>
     </div>
- 
-    <div class="btn-group">
-      <button type="submit" class="btn btn-primary">Search</button>
+    <div class="card">
+        <div class="card-header alert-dark" id="heading-two" >
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" style="color:black">
+                   <b> Search By Email</b>
+                </button>
+            </h5>
+        </div>
+        <div id="collapse2" class="collapse" aria-labelledby="heading-two" data-parent="#accordion">
+           <div class="card-body">
+            <div class="col">
+                <form (ngSubmit)="searchEmail()">
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email.."  id="emailId"  [(ngModel)]="emailId" name="emailId" style="width: 250px;">
+                    </div>
+                
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            <br>
+               <div [hidden]="!employee" class="col alert alert-success" role="alert">
+                        <h4>{{message2}}</h4>
+               </div>
+                <ul>
+        
+                        <li *ngIf="employee">
+                        <h3>{{employee.id}} - {{employee.firstName}} {{employee.lastName}} || {{employee.department}}
+                    
+                            <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
+                            <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
+                            <button (click)="employeeDetails(employee.id)" style="margin-left: 10px;" class="btn btn-info">Details</button>
+                        </h3> 
+        
+                        </li>
+                        <div *ngIf="!employee" >
+                            <h4 >{{message2}}</h4>
+                        </div>
+                </ul> 
+    
+           </div>
+        </div>
     </div>
-  </form>
 </div>
-<ul>
-  <li *ngFor="let employee of employees">
-    <h3>{{employee.id}} - {{employee.firstName}} {{employee.lastName}} || {{employee.department}}
-  
-        <button  (click)="deleteEmployee(employee.id)" class="btn btn-dark">Delete</button>
-        <button (click)="updateEmployee(employee.id)" style="margin-left: 10px;"class="btn btn-primary">Update</button>
-        <button (click)="employeeDetails(employee.id)" style="margin-left: 10px;" class="btn btn-info">Details</button>
-    </h3>   
-    </li>
-</ul>
+        

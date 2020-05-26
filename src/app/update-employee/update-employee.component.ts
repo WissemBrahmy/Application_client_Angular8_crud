@@ -18,7 +18,6 @@ export class UpdateEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.employee = new Employee();
-
     this.id = this.route.snapshot.params['id'];
     
     this.employeeService.getEmployee(this.id)
@@ -32,7 +31,6 @@ export class UpdateEmployeeComponent implements OnInit {
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data); this.gotoList();}, error => console.log(error));
     this.employee = new Employee();
-   
   }
 
   onSubmit() {

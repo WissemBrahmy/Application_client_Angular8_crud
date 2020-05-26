@@ -7,26 +7,30 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name"><b>First Name* </b></label>
-            <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+            <input type="text" class="form-control" id="firstName"  [(ngModel)]="employee.firstName" name="firstName" required>
         </div>
 
         <div class="form-group">
             <label for="name"><b> Last Name* </b> </label>
             <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
         </div>
+
         <div class="form-group">
           <label for="name"><b> Sex* </b></label><br>
           M <input type="radio"  id="sex" value="M" required [(ngModel)]="employee.sex" name="sex">
           F <input type="radio"  id="sex" value="F" required [(ngModel)]="employee.sex" name="sex">      
         </div>
+
         <div class="form-group">
             <label for="name"><b> Email* </b></label>
             <input type="email" class="form-control" id="emailId" placeholder="exemple@exemple.com" required [(ngModel)]="employee.emailId" name="emailId">
         </div>
+
         <div class="form-group">
           <label for="name"><b> Birth Date* </b></label>
           <input type="date" class="form-control" id="birthDate"  required [(ngModel)]="employee.birthDate" name="birthDate">
         </div>
+
         <div class="form-group">
             <label for="name"><b> Departement* </b></label>
             <select class="form-control" name="department" [(ngModel)]="employee.department" id="department" required>
@@ -34,7 +38,6 @@
             <option>Dep 2</option>
             <option>Dep 3</option>
             <option>Dep 4</option>
-          
             </select>
         </div>  
 
@@ -43,9 +46,10 @@
     </form>
   </div>
 
-<div [hidden]="!submitted" class="col alert alert-success" role="alert">
-    <h4>Create successfully!</h4>
+<div [hidden]="!submitted " class="col alert alert-success" role="alert">
+    <h4>{{message}}</h4>
 </div>
+
   <div class="col">
        <img src="assets/img/s.png" class="img-fluid" alt="Responsive image">
   </div>
